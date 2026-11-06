@@ -1,0 +1,4 @@
+companion/.venv/
+__pycache__/
+dist/
+*.pyc

@@ -1,0 +1,5 @@
+# yt-dlp[default] includes its YouTube challenge solver (yt-dlp-ejs) and mutagen.
+yt-dlp[default]>=2026.1.1
+mutagen>=1.47
+# A bundled ffmpeg, used only when ffmpeg isn't already installed.
+imageio-ffmpeg>=0.5

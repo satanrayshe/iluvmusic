@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <title>iluvmusic</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <img src="../icons/icon-32.png" width="22" height="22" alt="">
+      <span class="wordmark">iluvmusic</span>
+    </div>
+    <label class="switch" title="Turn automatic saving on or off">
+      <span class="switch-label" id="enabledLabel">On</span>
+      <input type="checkbox" id="enabled" class="toggle" aria-labelledby="enabledLabel">
+    </label>
+  </header>
+
+  <div id="permission" class="notice" hidden>
+    <p>iluvmusic needs access to websites to notice what you're playing.</p>
+    <button id="grant" class="btn primary" type="button">Allow access</button>
+  </div>
+
+  <section id="companion" class="companion" aria-live="polite"></section>
+
+  <section id="now" class="now" hidden></section>
+
+  <section class="rule">
+    <span>Save a song after</span>
+    <div class="stepper">
+      <button type="button" id="less" aria-label="Fewer plays">&minus;</button>
+      <output id="threshold" aria-live="polite">3</output>
+      <button type="button" id="more" aria-label="More plays">+</button>
+    </div>
+    <span id="playsWord">plays</span>
+  </section>
+
+  <nav class="tabs" role="tablist">
+    <button type="button" role="tab" data-tab="saved" aria-selected="true">Saved<span class="count" id="count-saved"></span></button>
+    <button type="button" role="tab" data-tab="listening" aria-selected="false">Listening<span class="count" id="count-listening"></span></button>
+    <button type="button" role="tab" data-tab="settings" aria-selected="false">Settings</button>
+  </nav>
+
+  <main>
+    <ul id="tab-saved" class="list" role="tabpanel"></ul>
+    <ul id="tab-listening" class="list" role="tabpanel" hidden></ul>
+
+    <form id="tab-settings" class="settings" role="tabpanel" hidden>
+      <label class="setting">
+        <span>Count songs on other websites<small>Bandcamp, embedded players, anything with a play button</small></span>
+        <input type="checkbox" name="otherSites" class="toggle">
+      </label>
+      <label class="setting">
+        <span>On YouTube, only count music<small>Skips vlogs, tutorials and other videos</small></span>
+        <input type="checkbox" name="youtubeMusicOnly" class="toggle">
+      </label>
+      <label class="setting">
+        <span>Notify me when a song is saved</span>
+        <input type="checkbox" name="notify" class="toggle">
+      </label>
+      <label class="setting">
+        <span>Skip tracks shorter than</span>
+        <span class="unit"><input type="number" name="minTrackSec" min="0" max="600" step="5"> sec</span>
+      </label>
+      <label class="setting">
+        <span>Skip tracks longer than</span>
+        <span class="unit"><input type="number" name="maxTrackMin" min="1" max="180"> min</span>
+      </label>
+
+      <div class="field">
+        <label for="folder">Music folder</label>
+        <div class="inline">
+          <input id="folder" type="text" spellcheck="false" autocomplete="off">
+          <button type="button" id="setFolder" class="btn">Save</button>
+        </div>
+        <p class="hint" id="folderHint"></p>
+      </div>
+
+      <div class="field">
+        <label for="companionUrl">Companion address</label>
+        <div class="inline">
+          <input id="companionUrl" type="text" spellcheck="false" autocomplete="off">
+          <button type="button" id="setUrl" class="btn">Save</button>
+        </div>
+      </div>
+
+      <button type="button" id="clear" class="btn subtle">Clear listening history</button>
+    </form>
+  </main>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="../shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
