@@ -79,7 +79,7 @@ ffmpeg comes bundled, so you don't need to install it.
 2. Turn on **Developer mode**.
 3. Click **Load unpacked** and choose the `extension` folder.
 
-**Firefox (version 128 or newer):**
+**Firefox (version 140 or newer):**
 
 1. Go to `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on** and choose `extension/manifest.json`.
@@ -92,8 +92,9 @@ Firefox shows a banner in the popup asking for site access, click **Allow access
 **Safari:** on a Mac with Xcode, run
 `xcrun safari-web-extension-converter extension/` and build the project it creates.
 
-> The Chrome Web Store doesn't allow extensions that download from YouTube, so
-> on Chromium browsers this stays a "Load unpacked" extension.
+> The Chrome Web Store often turns down extensions that download from YouTube.
+> Until iluvmusic is listed there, install it on Chromium browsers with
+> "Load unpacked" as above.
 
 ## Using it
 
@@ -156,6 +157,11 @@ Saving music you don't own the rights to can break the terms of the sites
 you're listening on, and copyright law where you live. iluvmusic is a
 personal tool. What you save, and what you do with it, is up to you.
 
+## Privacy
+
+No accounts, analytics or tracking. Play counts stay in your browser and songs
+are saved by the app on your computer. Details in [PRIVACY.md](PRIVACY.md).
+
 ## For developers
 
 ```
@@ -167,7 +173,7 @@ extension/            the browser extension (Manifest V3, one build for every br
 companion/            the local MP3 saver (Python, yt-dlp, ffmpeg)
 tests/                end-to-end and API tests
 tools/                icon generator, packaging script
-store/                512px icon for store listings
+store/                store icons, screenshots and listing text (LISTING.md)
 docs/                 README screenshots
 ```
 
